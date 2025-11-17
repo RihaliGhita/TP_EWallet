@@ -1,10 +1,8 @@
 #include "ComptePayPal.h"
 
-int ComptePayPal::compteur = 0;
+
 ComptePayPal::ComptePayPal(string t, string email, double S):MoyenPaiement(t),adresse_email(email),solde(S)
 {
-	compteur++;
-	this->id = compteur;
 }
 
 void ComptePayPal::recharger(double montant)
@@ -16,14 +14,6 @@ void ComptePayPal::recharger(double montant)
 
 }
 
-bool ComptePayPal::authentifier()
-{ 
-
-	string mail;
-	cout << "Veuillez entrer votre code PIN:" << endl;
-	cin >> mail;
-	return mail == adresse_email;
-}
 
 bool ComptePayPal::payer(double montant)
 {
@@ -34,10 +24,9 @@ bool ComptePayPal::payer(double montant)
 	this->solde -= montant;
 	cout << "Paiement PayPal effectue."<< endl;
 	return true;
-	
 }
 
 void ComptePayPal::afficher() const
 {
-	cout << "PayPal [ID:" << id << "] Titulaire: " << Titulaire << " | Email: " << adresse_email << " | Solde: " << solde << endl;
+	cout << "PayPal : Titulaire: " << Titulaire << " | Email: " << adresse_email << " | Solde: " << solde << endl;
 }
