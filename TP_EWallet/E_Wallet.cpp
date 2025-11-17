@@ -38,12 +38,17 @@ void E_Wallet::payerGlobal(double montant)
 
 void E_Wallet::afficher() const
 {
-	cout << "\n--- Comptes dans EWallet ---\n";
+	cout << " --- Comptes dans EWallet --- " << endl ;
 	for (int i = 0; i <nbreComptes; i++)
 		listeComptes[i]->afficher();
 }
 
 E_Wallet::~E_Wallet()
 {
+	for (int i = 0; i < nbreComptes; i++) {
+		delete listeComptes[i];
+		this->listeComptes[i] = nullptr;
+	}
+
 	delete[] this->listeComptes;
 }
