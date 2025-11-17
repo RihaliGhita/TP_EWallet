@@ -5,6 +5,6 @@ class Rechargeable
 {
 public:
 	virtual void recharger(double montant) = 0;
-	virtual ~Rechargeable();
+	virtual ~Rechargeable(){};
 };
 
