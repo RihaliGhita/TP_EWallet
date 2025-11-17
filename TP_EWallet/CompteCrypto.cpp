@@ -22,7 +22,7 @@ bool CompteCrypto::payer(double montant)
 	return true;
 }
 
-bool CompteCrypto::authentifier()
+bool CompteCrypto::authentifier()const
 {
 	string cle;
 	cout << "Entrer cle privee : ";
@@ -36,7 +36,7 @@ void CompteCrypto::recharger(double montant)  // demander+ajouter
 	cout << "Veuillez saisir un montant:";
 	cin >> montant;
 	this->Balance += montant;
-	cout << "Balance Crypto mise à jour: " << this->Balance << endl;
+	cout << "Balance Crypto mise Ã  jour: " << this->Balance << endl;
 }
 
 
