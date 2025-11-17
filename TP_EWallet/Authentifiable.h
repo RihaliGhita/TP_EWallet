@@ -4,7 +4,7 @@ using namespace std;
 class Authentifiable
 {
 public:
-	virtual bool authentifier() = 0;
-	virtual~Authentifiable();
+	virtual bool authentifier() const = 0;
+	virtual~Authentifiable(){};
 };
 
