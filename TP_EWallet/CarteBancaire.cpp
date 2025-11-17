@@ -1,14 +1,10 @@
 #include "CarteBancaire.h"
 
-int CarteBancaire::count = 0;
-
-CarteBancaire::CarteBancaire(string t,string Code, double P):MoyenPaiement(t),codeSecret(Code),plafond(P)
+CarteBancaire::CarteBancaire(string t,int N,string Code, double P):MoyenPaiement(t),codeSecret(Code),plafond(P),Numero(N)
 {
-	count++;
-	this->Numero = count;
 }
 
-bool CarteBancaire::authentifier()
+bool CarteBancaire::authentifier()const
 {
 	string code;
 	cout << "Veuillez entrer votre code PIN:" << endl;
@@ -22,14 +18,15 @@ void CarteBancaire::recharger(double montant)
 
 bool CarteBancaire::payer(double montant)
 {
-	if (montant > this->plafond) {
-		cout << "Paiement refuse : depasse le plafond."<<endl;
-		return false;
-	}
 	if (!authentifier()) {
 		cout << "Code PIN incorrect.";
 		return false;
 	}
+	if (montant > this->plafond) {
+		cout << "Paiement refuse : depasse le plafond."<<endl;
+		return false;
+	}
+	
 	cout << "Paiement Carte Bancaire acceptee."<<endl;
 	return true;
 
