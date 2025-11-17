@@ -1,9 +1,7 @@
 #pragma once
 #include<iostream>
-#include"Authentifiable.h"
-#include"Rechargeable.h"
 using namespace std;
-class MoyenPaiement:public Authentifiable, public Rechargeable
+class MoyenPaiement
 {
 protected:
 	string Titulaire;
